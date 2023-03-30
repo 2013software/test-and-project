@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tvenue</title>
+  <link rel="stylesheet" href="static/css/ttttt.css">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+</head>
+<body background="static/image/register.jpg" style=" background-repeat:no-repeat ;background-size:100% 100%;
+background-attachment: fixed;">
+<header>
+  <nav>
+    <div class="logo">Gymnasium reservation system</div>
+    <div class="mobile-menu">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+    <ul class="nav-list">
+      <li><a href="tindex">Home</a></li>
+      <li><a href="tvenue">Venue</a></li>
+      <li><a href="tmanage">Course</a></li>
+      <li><a href="add-newcourse">Add-course</a></li>
+      <li><a href="tpersonal">Personal</a></li>
+      <li><a href="logout">Exit </a> </li>
+    </ul>
+  </nav>
+</header>
+<center>
+  <div class="content">
+    <h4>All free gymnasiums</h4>
+      <form method="post" action="time">
+        <select name="timeid"><option th:value="${time.getId()}" th:each="time : ${time_list}" th:text="${time.getTime()}"></select>
+        <button class="btn" type="submit">Submit</button>
+      </form>
+
+  </div>
+
+</center>
+<!--<script src="static/js/SelectTime.js"></script>-->
+</body>
+</html>

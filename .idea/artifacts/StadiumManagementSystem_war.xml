@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="StadiumManagementSystem:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>StadiumManagementSystem</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="StadiumManagementSystem-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="StadiumManagementSystem:war exploded" />
+    </root>
+  </artifact>
+</component>

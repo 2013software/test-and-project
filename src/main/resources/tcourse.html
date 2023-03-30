@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tcourse</title>
+  <link rel="stylesheet" href="static/css/page.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+</head>
+<body background="static/image/register.jpg" style=" background-repeat:no-repeat ;background-size:100% 100%;
+background-attachment: fixed;">
+<header>
+  <nav>
+    <div class="logo">Gymnasium reservation system</div>
+    <div class="mobile-menu">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+    <ul class="nav-list">
+      <li><a href="tindex">Home</a></li>
+       <li><a href="tvenue">Venue</a></li>
+      <li><a href="tmanage">Course</a></li>
+      <li><a href="add-newcourse">Add-course</a></li>
+      <li><a href="personal">Personal</a></li>
+      <li><a href="login">Exit </a> </li>
+    </ul>
+  </nav>
+</header>
+<center>
+<div class="content">
+<h4>Check-in status</h4>
+<table>
+  <tr>
+       <th>Course number</th>
+    <th>Course name</th>
+    <th>Total number</th>
+    <th>Checked in number</th>
+    <th>Publish</th>
+    <th>Close</th>
+  </tr>
+  <tr th:each="course : ${course_list}">
+    <td th:text="'#'+${course.getId()}">course-number</td>
+    <td th:text="${course.getCourse_name()}">course-name</td>
+    <td th:text="${course.getCurrent_number()}">32</td>
+    <td>26</td>
+    <td>
+      <span>
+ <i class="fas fa-map-marker-alt"></i>
+    </span><button class="btn">Publish</button></td>
+     <td><button class="btn">Close</button></td>
+  </tr>
+
+</table>
+
+</div>
+</center>
+<script src="static/js/page.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>select-course</title>
+  <link rel="stylesheet" href="static/css/page.css">
+</head>
+<body background="static/image/register.jpg" style=" background-repeat:no-repeat ;background-size:100% 100%;
+background-attachment: fixed;">
+<header>
+  <nav>
+    <div class="logo">Gymnasium reservation system</div>
+    <div class="mobile-menu">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+    <ul class="nav-list">
+      <li><a href="index">Home</a></li>
+      <li><a href="course">Reservation</a></li>
+      <li><a href="venue">Venue</a></li>
+      <li><a href="select-course">Course</a></li>
+      <li><a href="personal">Personal</a></li>
+      <li><a href="logout">Exit </a> </li>
+    </ul>
+  </nav>
+</header>
+<center>
+  <div class="content">
+    <h4>All free course</h4>
+    <table>
+      <tr>
+        <th>course number</th>
+        <th>course name</th>
+        <th>location</th>
+        <th>teacher</th>
+        <th>time</th>
+        <th>state</th>
+      </tr>
+      <tr th:each="course : ${select_course_list}">
+        <td th:text="'#'+${course.getCourse_id()}">5</td>
+        <td th:text="${course.getCourse_name()}">Volleyball hall</td>
+        <td th:text="${course.getLocation()}">Volleyball hall</td>
+        <td th:text="${course.getTeacher()}">Volleyball hall</td>
+        <td th:text="${course.getTime()}"></td>
+<!--          <select name="time">-->
+<!--          <option value="1">08:00-09:35 Mon</option>-->
+<!--          <option value="2">09:50-12:15 Mon</option>-->
+<!--          <option value="3">14:00-15:35 Mon</option>-->
+<!--          <option value="4">15:50-18:15 Mon</option>-->
+<!--          <option value="5">08:00-09:35 Tue</option>-->
+<!--          <option value="6">09:50-12:15 Tue</option>-->
+<!--          <option value="7">14:00-15:35 Tue</option>-->
+<!--          <option value="8">15:50-18:15 Tue</option>-->
+<!--          <option value="9">08:00-09:35 Wes</option>-->
+<!--          <option value="10">09:50-12:15 Wes</option>-->
+<!--          <option value="11">14:00-15:35 Wes</option>-->
+<!--          <option value="12">15:50-18:15 Wes</option>-->
+<!--          <option value="13">08:00-09:35 Thu</option>-->
+<!--          <option value="14">09:50-12:15 Thu</option>-->
+<!--          <option value="15">14:00-15:35 Thu</option>-->
+<!--          <option value="16">15:50-18:15 Thu</option>-->
+<!--          <option value="17">08:00-09:35 Fri</option>-->
+<!--          <option value="18">09:50-12:15 Fri</option>-->
+<!--          <option value="19">14:00-15:35 Fri</option>-->
+<!--          <option value="20">15:50-18:15 Fri</option>-->
+<!--        </select>-->
+
+        <td>
+          <button class="btn" type="submit"><a th:href="'add-course?courseid='+${course.getCourse_id()}+'&uid='+${uid}">JOIN</a></button>
+
+        </td>
+      </tr>
+    </table>
+  </div>
+  <button class="btn1"><a href="course">View reservation</a></button>
+</center>
+
+<script src="static/js/page.js"></script>
+</body>
+</html>

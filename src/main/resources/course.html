@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>course</title>
+  <link rel="stylesheet" href="static/css/page.css">
+</head>
+<body background="static/image/register.jpg" style=" background-repeat:no-repeat ;background-size:100% 100%;
+background-attachment: fixed;">
+<header>
+  <nav>
+    <div class="logo">Gymnasium reservation system</div>
+    <div class="mobile-menu">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+    <ul class="nav-list">
+      <li><a href="index">Home</a></li>
+      <li><a href="course">Reservation</a></li>
+      <li><a href="venue">Venue</a></li>
+      <li><a href="select-course">Course</a></li>
+      <li><a href="personal">Personal</a></li>
+      <li><a href="logout">Exit </a> </li>
+    </ul>
+  </nav>
+</header>
+<center>
+<div class="content">
+<h4>Already by appointment</h4>
+
+<table>
+  <tr>
+    <th>Course number</th>
+    <th>Course name</th>
+    <th>Teacher</th>
+    <th>Time</th>
+    <th>Location</th>
+    <th>State</th>
+  </tr>
+ <!----the physical education class you attended---->
+  <tr th:each="course : ${course_list}">
+    <td th:text="'#'+${course.getCourse_id()}">1</td>
+    <td th:text="${course.getCourse_name()}">Badminton</td>
+    <td th:text="${course.getTeacher()}">Li</td>
+    <td th:text="${course.getTime()}">Wednesday from 2 p.m. to 2:45 p.m</td>
+    <td th:text="${course.getLocation()}">Badminton hall</td>
+    <td><button class="btn"><a th:href="'cancel-course?id='+${course.getId()}+'&courseid='+${course.getCourse_id()}">Cancel</a></button></td>
+  </tr>
+  <tr th:each="stvenue : ${stvenue_list}">
+    <td th:text="'#'+${stvenue.getId()}">1</td>
+    <td>\</td>
+    <td>\</td>
+    <td th:text="${stvenue.getTime()}">Wednesday from 2 p.m. to 2:45 p.m</td>
+    <td th:text="${stvenue.getLocation()}">Badminton hall</td>
+    <td><button class="btn"><a th:href="'cancel-venue?id='+${stvenue.getId()}">Cancel</a></button></td>
+  </tr>
+
+</table>
+
+</div>
+  <button class="btn1"><a href="venue">Make reservation</a></button>
+</center>
+
+<script src="static/js/page.js"></script>
+</body>
+</html>
