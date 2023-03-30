@@ -18,7 +18,7 @@ public interface StVenueMapper {
             "and venue_state.useid = #{userid} ")
     List<StVenue> getStVenueList(int userid);
 
-    @Update("update venue_state set useid = NULL, state = 1 where state_id = #{id}")
+    @Delete("delete from venue_state where state_id = #{id}")
     void CancelVenue(String id);
 
     @Insert("insert into venue_state(venueid,timeid,useid) value(#{venueid}, #{timeid}, #{useid})")
