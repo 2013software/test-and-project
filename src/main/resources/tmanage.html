@@ -57,7 +57,7 @@ background-attachment: fixed;">
     <td th:text="${stvenue.getTime()}">Wednesday from 2 p.m. to 2:45 p.m</td>
     <td th:text="${stvenue.getLocation()}">Badminton hall</td>
     <td>\</td>
-    <td><button class="btn"><a th:href="'cancel-venue?id='+${stvenue.getId()}">Cancel</a></button></td>
+    <td><button class="btn"><a onclick="return confirm('Are you sure to cancel the reservation?')" th:href="'cancel-venue?id='+${stvenue.getId()}">Cancel</a></button></td>
   </tr>
    <!----exercise at the sports venue you booked yourself---->
 

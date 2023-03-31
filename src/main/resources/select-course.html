@@ -67,7 +67,7 @@ background-attachment: fixed;">
 <!--        </select>-->
 
         <td>
-          <button class="btn" type="submit"><a th:href="'add-course?courseid='+${course.getCourse_id()}+'&uid='+${uid}">JOIN</a></button>
+          <button class="btn" type="submit"><a onclick="return confirm('Are you sure to join this course?')" th:href="'add-course?courseid='+${course.getCourse_id()}+'&uid='+${uid}">JOIN</a></button>
 
         </td>
       </tr>
