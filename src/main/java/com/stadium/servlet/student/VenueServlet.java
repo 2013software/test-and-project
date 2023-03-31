@@ -1,4 +1,4 @@
-package com.stadium.servlet.teacher;
+package com.stadium.servlet.student;
 
 import com.stadium.entity.*;
 import com.stadium.service.CourseService;
