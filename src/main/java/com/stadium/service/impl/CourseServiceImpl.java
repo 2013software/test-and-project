@@ -1,6 +1,7 @@
 package com.stadium.service.impl;
 
 import com.stadium.dao.CourseMapper;
+import com.stadium.dao.SelectCourseMapper;
 import com.stadium.entity.Course;
 import com.stadium.entity.Time;
 import com.stadium.entity.Venue;
@@ -58,6 +59,22 @@ public class CourseServiceImpl implements CourseService {
             return mapper.getTimeList();
         }
     }
+
+    @Override
+    public List<Time> getTimeList2(int userid) {
+        try (SqlSession sqlSession = MybatisUtil.getSession(true)){
+            CourseMapper mapper = sqlSession.getMapper(CourseMapper.class);
+            return mapper.getTimeList2(userid);
+        }
+    }
+
+//    @Override
+//    public void select_time(Time time) {
+//        try (SqlSession sqlSession = MybatisUtil.getSession(true)) {
+//            CourseMapper mapper = sqlSession.getMapper(CourseMapper.class);
+//            mapper.select_time(time);
+//        }
+//    }
 
     @Override
     public List<Venue> getVenueList_addcourse() {

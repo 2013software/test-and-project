@@ -67,6 +67,10 @@ background-attachment: fixed;">
                     <div style="top: -12px; position: relative">Confirm</div>
                 </button>
             </form>
+            <form action="venue" method="post"
+                  style="background-color: rgba(0, 0, 0, 0);border: none;padding: 0; width: 150px; height: 80px; " >
+                <button type="submit"><a th:href="'time_venue?venueid='+${venue.getId()}">refresh</a></button>
+            </form>
         </div>
     </div>
     <button class="btn1"><a href="course">View reservation</a></button>

@@ -34,18 +34,22 @@ background-attachment: fixed;">
         <h4>All free gymnasiums</h4>
 
         <div class="container-right" th:each="venue : ${venue_list}" style="overflow-y: hidden">
-            <form action="tvenue" method="post" style="background-color: rgba(0, 0, 0, 0);border: none;padding: 0; width: 150px; height: 80px; ">
+            <form action="tvenue" method="post"
+                  style="background-color: rgba(0, 0, 0, 0);border: none;padding: 0; width: 150px; height: 80px; ">
                 <!--  文章列表  -->
-                <div class="blog input-group mb-3" style="width: 400px; left: -345px; top: 7px"  >
+                <div class="blog input-group mb-3" style="width: 400px; left: -345px; top: 7px">
                     <input name="venueid" th:value="${venue.getId()}" type="hidden">
                     <div class="date" th:text="'#'+${venue.getId()}" style="position: relative;left: -10px">T0012</div>
-                    <div class="title" th:text="${venue.getVenue_name()}" style="width: 320px; color: #686868; margin-left: 10px">Volleyball hall</div>
+                    <div class="title" th:text="${venue.getVenue_name()}"
+                         style="width: 320px; color: #686868; margin-left: 10px">Volleyball hall
+                    </div>
 
                     <br>
                     <!--                    <div class="input-group-append" style="height: 50px">-->
                     <!--                        <label class="input-group-text" for="time">Select</label>-->
                     <!--                    </div>-->
-                    <select name="timeid" class="custom-select" style="border-radius: 10px; position: relative; left: 280px; top: -50px; width: 400px">
+                    <select name="timeid" class="custom-select"
+                            style="border-radius: 10px; position: relative; left: 280px; top: -50px; width: 400px">
                         <option th:value="${time.getId()}" th:each="time : ${time_list}" th:text="${time.getTime()}">
                     </select>
                     <!--                    <div class="select-menu">-->
@@ -60,9 +64,14 @@ background-attachment: fixed;">
                     <!--                        </div>-->
                     <!--                    </div>-->
                 </div>
-                <button class="b1" type="submit" style="height: 40px; top:-113px;position: relative; left: 350px" onclick="return confirm('Are you sure to reserve the venue?')">
+                <button class="b1" type="submit" style="height: 40px; top:-113px;position: relative; left: 350px"
+                        onclick="return confirm('Are you sure to reserve the venue?')">
                     <div style="top: -12px; position: relative">Confirm</div>
                 </button>
+            </form>
+            <form action="tvenue" method="post"
+                  style="background-color: rgba(0, 0, 0, 0);border: none;padding: 0; width: 150px; height: 80px; " >
+                <button type="submit"><a th:href="'time_venue?venueid='+${venue.getId()}">refresh</a></button>
             </form>
         </div>
     </div>

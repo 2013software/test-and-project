@@ -54,6 +54,14 @@ public interface CourseMapper {
 
     @Results({
             @Result(column = "id", property = "id"),
+            @Result(column = "time", property = "time"),
+            @Result(column = "venueid", property = "venueid")
+    })
+    @Select("select * from venue_state, time where venue_state.timeid = time.id")
+    List<Time> getTimeList2(int userid);
+
+    @Results({
+            @Result(column = "id", property = "id"),
             @Result(column = "venue_name", property = "venue_name")
     })
     @Select("select * from venue")
@@ -70,4 +78,7 @@ public interface CourseMapper {
 
     @Insert("insert into course(tid,course_name,course_time,venueid,maximum_number,current_number) value(#{teacherid}, #{course_name}, #{timeid}, #{venueid}, #{maximum_number}, '0')")
     void Add_Course(Course course);
+
+//    @Update("update time set current_number = current_number+1 where id = #{course_id}")
+//    void select_time(Time time);
 }

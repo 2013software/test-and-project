@@ -6,4 +6,5 @@ import lombok.Data;
 public class Time {
     int id;
     String time;
+    int venueid;
 }
