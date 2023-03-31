@@ -27,7 +27,8 @@ public class LoginServlet extends HttpServlet {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         String identity = req.getParameter("identity");
-        if(service.user(username, password, identity, req.getSession())) {
+        String ranCode=req.getParameter("verification");
+        if(service.user(username, password, identity, req.getSession()) && ranCode.equalsIgnoreCase((String)req.getSession().getAttribute("rand"))) {
             if (Objects.equals(identity, "student")) {
                 resp.sendRedirect("index");
             }

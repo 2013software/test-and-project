@@ -31,8 +31,8 @@ public class RegisterServlet extends HttpServlet {
         String password = req.getParameter("password");
         String telephone = req.getParameter("telephone");
         String identity = req.getParameter("identity");
-
-        if (!Objects.equals(username, null) && !Objects.equals(password, null) && !Objects.equals(telephone, null) && !Objects.equals(identity, null) && !Objects.equals(username, "") && !Objects.equals(password, "") && !Objects.equals(telephone, "") && !Objects.equals(identity, "")) {
+        String ranCode=req.getParameter("verification");
+        if (!Objects.equals(username, null) && !Objects.equals(password, null) && !Objects.equals(telephone, null) && !Objects.equals(identity, null) && !Objects.equals(username, "") && !Objects.equals(password, "") && !Objects.equals(telephone, "") && !Objects.equals(identity, "") && ranCode.equalsIgnoreCase((String)req.getSession().getAttribute("rand"))) {
             User user = new User();
             user.setUsername(username);
             user.setPassword(password);
