@@ -1,59 +1,75 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>venue</title>
-  <link rel="stylesheet" href="static/css/page.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>venue</title>
+    <link rel="stylesheet" href="static/css/bootstrap.4.6.min.css">
+    <link rel="stylesheet" href="static/css/venue.css">
 </head>
 <body background="static/image/register.jpg" style=" background-repeat:no-repeat ;background-size:100% 100%;
 background-attachment: fixed;">
+<script src="static/jquery/jquery.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
 <header>
-  <nav>
-    <div class="logo">Gymnasium reservation system</div>
-    <div class="mobile-menu">
-      <div class="line1"></div>
-      <div class="line2"></div>
-      <div class="line3"></div>
-    </div>
-    <ul class="nav-list">
-      <li><a href="index">Home</a></li>
-      <li><a href="course">Reservation</a></li>
-      <li><a href="venue">Venue</a></li>
-      <li><a href="select-course">Course</a></li>
-      <li><a href="personal">Personal</a></li>
-      <li><a href="logout">Exit </a> </li>
-    </ul>
-  </nav>
+    <nav>
+        <div class="logo">Gymnasium reservation system</div>
+        <div class="mobile-menu">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <ul class="nav-list">
+            <li><a href="index">Home</a></li>
+            <li><a href="course">Reservation</a></li>
+            <li><a href="venue">Venue</a></li>
+            <li><a href="select-course">Course</a></li>
+            <li><a href="personal">Personal</a></li>
+            <li><a href="logout">Exit </a></li>
+        </ul>
+    </nav>
 </header>
 <center>
-  <div class="content">
-    <h4>All free gymnasiums</h4>
+    <div class="content">
+        <h4>All free gymnasiums</h4>
 
-    <div class="container-right" th:each="venue : ${venue_list}">
-      <form action="venue" method="post" style="background-color: rgba(0, 0, 0, 0);border: none;padding: 0">
-        <!--  文章列表  -->
-        <div class="blog">
-          <div class="title" th:text="${venue.getVenue_name()}">Volleyball hall</div>
-          <input name="venueid" th:value="${venue.getId()}" type="hidden">
-          <div class="date" th:text="'#'+${venue.getId()}">T0012</div>
-          <select name="timeid"><option th:value="${time.getId()}" th:each="time : ${time_list}" th:text="${time.getTime()}"></select>
-          <!--                    <div class="select-menu">-->
-          <!--                        <div class="select">-->
-          <!--                            <span class="t1">Select Time</span>-->
-          <!--                            <i class="fas fa-angle-down"></i>-->
-          <!--                        </div>-->
-          <!--                        <div class="options-list">-->
-          <!--                            <div th:each="time : ${time_list}">-->
-          <!--                                <div class="option" th:text="${time.getTime()}">8:00</div>-->
-          <!--                            </div>-->
-          <!--                        </div>-->
-          <!--                    </div>-->
+        <div class="container-right" th:each="venue : ${venue_list}" style="overflow-y: hidden">
+            <form action="venue" method="post"
+                  style="background-color: rgba(0, 0, 0, 0);border: none;padding: 0; width: 150px; height: 80px; ">
+                <!--  文章列表  -->
+                <div class="blog input-group mb-3" style="width: 400px; left: -345px; top: 7px">
+                    <input name="venueid" th:value="${venue.getId()}" type="hidden">
+                    <div class="date" th:text="'#'+${venue.getId()}" style="position: relative;left: -10px">T0012</div>
+                    <div class="title" th:text="${venue.getVenue_name()}"
+                         style="width: 320px; color: #686868; margin-left: 10px">Volleyball hall
+                    </div>
+
+                    <br>
+                    <!--                    <div class="input-group-append" style="height: 50px">-->
+                    <!--                        <label class="input-group-text" for="time">Select</label>-->
+                    <!--                    </div>-->
+                    <select name="timeid" class="custom-select"
+                            style="border-radius: 10px; position: relative; left: 280px; top: -50px; width: 400px">
+                        <option th:value="${time.getId()}" th:each="time : ${time_list}" th:text="${time.getTime()}">
+                    </select>
+                    <!--                    <div class="select-menu">-->
+                    <!--                        <div class="select">-->
+                    <!--                            <span class="t1">Select Time</span>-->
+                    <!--                            <i class="fas fa-angle-down"></i>-->
+                    <!--                        </div>-->
+                    <!--                        <div class="options-list">-->
+                    <!--                            <div th:each="time : ${time_list}">-->
+                    <!--                                <div class="option" th:text="${time.getTime()}">8:00</div>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                </div>
+                <button class="b1" type="submit" style="height: 40px; top:-113px;position: relative; left: 350px">
+                    <div style="top: -12px; position: relative">Confirm</div>
+                </button>
+            </form>
         </div>
-        <button class="b1" type="submit">Confirm</button>
-      </form>
     </div>
-  </div>
-  <button class="btn1"><a href="course">View reservation</a></button>
+    <button class="btn1"><a href="course">View reservation</a></button>
 </center>
 
 <script src="static/js/page.js"></script>
