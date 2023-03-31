@@ -29,27 +29,29 @@ background-attachment: fixed;">
   <div class="content">
     <h4>All free gymnasiums</h4>
 
-    <table>
-      <tr>
-        <th>venue number</th>
-        <th>venue name</th>
-<!--        <th>time</th>-->
-        <th>select</th>
-      </tr>
-      <!----the physical education class you attended---->
-
-      <tr th:each="venue : ${venue_list}">
-        <td th:text="'#'+${venue.getId()}">1</td>
-        <td th:text="${venue.getVenue_name()}">Badminton</td>
-<!--        <td th:text="${venue.getTime()}">Badminton</td>-->
-        <td>
-            <button class="btn" type="submit"><a th:href="'select-venue?id='+${venue.getId()}+'&userid='+${userid}">Time</a></button>
-          </form>
-        </td>
-      </tr>
-
-    </table>
-
+    <div class="container-right" th:each="venue : ${venue_list}">
+      <form action="venue" method="post" style="background-color: rgba(0, 0, 0, 0);border: none;padding: 0">
+        <!--  文章列表  -->
+        <div class="blog">
+          <div class="title" th:text="${venue.getVenue_name()}">Volleyball hall</div>
+          <input name="venueid" th:value="${venue.getId()}" type="hidden">
+          <div class="date" th:text="'#'+${venue.getId()}">T0012</div>
+          <select name="timeid"><option th:value="${time.getId()}" th:each="time : ${time_list}" th:text="${time.getTime()}"></select>
+          <!--                    <div class="select-menu">-->
+          <!--                        <div class="select">-->
+          <!--                            <span class="t1">Select Time</span>-->
+          <!--                            <i class="fas fa-angle-down"></i>-->
+          <!--                        </div>-->
+          <!--                        <div class="options-list">-->
+          <!--                            <div th:each="time : ${time_list}">-->
+          <!--                                <div class="option" th:text="${time.getTime()}">8:00</div>-->
+          <!--                            </div>-->
+          <!--                        </div>-->
+          <!--                    </div>-->
+        </div>
+        <button class="b1" type="submit">Confirm</button>
+      </form>
+    </div>
   </div>
   <button class="btn1"><a href="course">View reservation</a></button>
 </center>

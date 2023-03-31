@@ -1,0 +1,511 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+
+
+a:hover::before{
+  top: -10%;
+  left: -10%;
+}
+
+
+.nav-list a{
+  /* 相对定位 */
+  position: relative;
+  /* 将a标签转为块级元素,不然无法设置宽高 */
+  display: block;
+  width: 90px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  margin: 30px;
+  color: chocolate;
+  text-decoration: none;
+  font-size: 20px;
+  /* 动画过渡，延迟时间 */
+  transition: all 0.09s ease-in-out 0.09s;
+  /* 我们是如果改变a标签的颜色 */
+  /* hue-rotate是颜色滤镜.可以加不同的度数来改变颜色.这里我们用的是calc自动计算函数 */
+  /* 以及var函数来调用我们给每一个a元素设置的不同的自定义属性1~5，然后分别乘以60度，就能够分别得到不同的颜色 */
+  filter: hue-rotate(calc(var(--i)*60deg));
+}
+/* 这里将两个伪元素的相同样式写在一起 */
+.nav-list a::before,
+.nav-list a::after{
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px chocolate;
+  /* 这里加一个动画过渡
+  最后的0.2秒时延迟时间 */
+  transition: all 0.2s ease-in-out 0.2s;
+  opacity: 1;
+}
+
+.nav-list a::before{
+  top: 0;
+  left: 0;
+  /* 删除左边元素的右边框和下边框 */
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.nav-list a::after{
+  right: 0;
+  bottom: 0;
+  /* 删除右边元素的左边框和上边框 */
+  border-left: 0;
+  border-top: 0;
+}
+
+.nav-list a:hover{
+  background-color:#E68864;
+  color: white;
+  box-shadow: 0 0 50px white;
+  /*-webkit-box-reflect: below 1px linear-gradient(transparent,rgba(0,0,0,0.3));*/
+  transition-delay: 0.02s;
+}
+
+.nav-list a:hover::before,
+.nav-list a:hover::after{
+  width: 98px;
+  height: 58px;
+  transition-delay: 0s;
+}
+
+.logo{
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: blanchedalmond;
+}
+
+nav{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #888888;
+  height: 8vh;
+}
+
+.nav-list{
+  /* 使黑点消除 */
+  list-style: none;
+  display: flex;
+}
+
+.nav-list li{
+  letter-spacing: 3px;
+  margin-left: 32px;
+}
+
+.mobile-menu{
+  display: none;
+  cursor: pointer;
+}
+
+.mobile-menu div{
+  width: 32px;
+  height: 2px;
+  background: #fff;
+  margin: 8px;
+  transition: 0.3s;
+}
+
+/* 开始响应式设计 */
+@media(max-width:999px){
+  body{
+    overflow-x: hidden;
+  }
+  .nav-list{
+    position: absolute;
+    top: 8vh;
+    right: 0;
+    width: 30vw;
+    height:92vh;
+    background:#888888;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in;
+  }
+
+  .nav-list li{
+    margin-left: 0;
+    opacity: 0;
+  }
+
+  .mobile-menu{
+    display: block;
+  }
+
+  .nav-list.active{
+    transform: translateX(0);
+  }
+
+  @keyframes navLinkFade {
+    from{
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to{
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+.mobile-menu.active .line1{
+  transform:  rotate(-45deg) translate(-9px ,8px);
+}
+.mobile-menu.active .line2{
+  opacity: 0;
+}
+.mobile-menu.active .line3{
+  transform:  rotate(45deg) translate(-5px ,-6px);
+}
+.content {
+  margin-top:3%;
+}
+table {
+  border-collapse: collapse;
+  width: 70%;
+  text-align:center;
+  background-color:white;
+  margin-top:20px;
+
+}
+
+th, td {
+  padding: 8px;
+}
+tr:nth-child(even){background-color: #f2f2f2;
+}
+th {
+  background-color: #E68864;
+  color: white;
+}
+.course a{
+  color:#E68864;
+  background:transparent;
+  width:60px;
+}
+h4{
+  font-size:30px;
+  color:white;
+}
+.btn{
+  width: 80px;
+  height: 35px;
+  background:linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
+  border: none;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 20px;
+  color: #fff;
+}
+
+form{
+  margin: 10px;
+  text-align: center;
+  color:black;
+  line-height: 65px;
+  width: 520px;
+  height: 400px;
+  border-radius: 10px;
+  border: 2px solid rgb(190, 190, 214);
+  background-color:white;
+}
+.form-group{
+  background:transparent;
+  height:80px;
+  font-size:23px;
+  font-weight:500;
+}
+.form-control{
+  height:30px;
+  border-radius: 10px;
+  width:50%;
+  border: 2px solid rgb(190, 190, 214);
+}
+.btn1{
+  width: 278px;
+  height: 45px;
+  background-image:linear-gradient(to right, #03c8a8, #89d8d3 , #03c8a8);
+  background-size: 200%;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 20px;
+  font-family: 'Poppins',sans-serif;
+  text-transform: uppercase;
+  margin: 1rem 0;
+  transition: .5s;
+  color: #fff;
+  cursor: pointer;
+
+}
+
+
+
+.btn1:hover{
+  background-position: right;
+
+}
+
+.wave{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  z-index: -1;
+}
+label{
+  width: 200px;
+  display: inline-block;
+  text-align: right;
+  padding-right: 3px;
+}
+
+
+.container-right{
+  margin-top: 30px;
+  height: 100%;
+  width:895px;
+  /*当内容超过外部容器的高度时，怎么办？auto：没超过时正常显示，超出时，出现滚动条*/
+  overflow: auto;
+  background-color:rgba(255,255,255,.8);
+  border-radius: 10px;
+}
+
+
+.blog{
+  width:100%;
+  /*上下左右边距*/
+  padding: 0 20px;
+
+}
+.blog .title{
+  color:black;
+  /*字体大小*/
+  font-size: 30px;
+  /*字体粗细程度*/
+  font-weight: 1000;
+  /*居中*/
+  text-align: center;
+  padding: 0;
+}
+.blog .date{
+  color: #F59B6B;
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.blog .detail{
+  /*默认行展示，改为块展示*/
+  display: block;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  margin: 0 auto 0 auto;
+  border: 2px solid black;
+  /*给颜色上加过滤效果，动画的持续时间*/
+  transition: all .5s;
+}
+/* :hover伪类选择器，完整的意思：.blog下的 .detail在鼠标划过时，应用该样式*/
+.blog .detail:hover{
+  background-color:#000;
+  color: #fff;
+}
+
+
+.dropbtn {
+  background-color: #F59B6B;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  align-items: center;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+
+
+.select_style{
+  width:240px;
+  height:30px;
+  overflow:hidden;
+  border:1px solid #ccc;
+  -moz-border-radius:5px; /* Gecko browsers */
+  -webkit-border-radius:5px; /* Webkit browsers */
+  border-radius:5px;
+  margin:150px;
+}
+.select_style select{
+  padding:5px;
+  background:transparent;
+  width:268px;
+  font-size:16px;
+  border:none;
+  height:30px;
+  -webkit-appearance:none; /*for Webkit browsers*/
+}
+
+li{
+  list-style: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat';
+}
+
+body {
+  background-color: #e9d5ca;
+  height: 100vh;
+
+}
+.select-menu {
+  width: 300px;
+  cursor: pointer;
+  position: relative;
+}
+.select {
+  background-color: #ffffff;
+  padding: 0;
+  color: #fff;
+  font-weight: 800;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.select:hover{
+  background-color: #999999;
+  transition: .4s;
+}
+
+.select span{
+  text-align: center;
+  color:#222429;
+  font-size: 18px;
+}
+
+.select span:hover{
+  color: white;
+  text-align: center;
+}
+.options-list {
+  position: absolute;
+  width: 100%;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  margin-top: 6px;
+  padding: 0 20px;
+  max-height: 180px;
+  overflow-y: auto;
+  transition: 0.4s linear 0.2s;
+  height: 0;
+}
+.option{
+  padding: 8px 0;
+  font-weight: 500;
+  font-size: 14px;
+  transition: 0.3s ease-in-out;
+}
+.option:hover,
+.option.selected{
+  color: #F59B6B;
+}
+.options-list::-webkit-scrollbar{
+  width: 4px;
+  background-color: #eee;
+}
+.options-list::-webkit-scrollbar-thumb{
+  background-color: #BE6549;
+}
+.options-list.active{
+  height: 180px;
+}
+
+.options-list.option{
+  text-align: center;
+}
+
+
+
+.b1{
+  width: 120px;
+  height: 30px;
+  background-image:linear-gradient(to right, #F59B6B, #BE6549 , #F59B6B);
+  background-size: 200%;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 20px;
+  font-family: 'Poppins',sans-serif;
+  text-transform: uppercase;
+  margin: 1rem 0;
+  transition: .5s;
+  color: #fff;
+  cursor: pointer;
+
+}
+
+
+
+.b1:hover{
+  background-position: right;
+
+}
+
+
+

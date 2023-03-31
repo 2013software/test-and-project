@@ -1,82 +1,66 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>tvenue</title>
-  <link rel="stylesheet" href="static/css/ttttt.css">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tvenue</title>
+    <link rel="stylesheet" href="static/css/venue.css">
 </head>
 <body background="static/image/register.jpg" style=" background-repeat:no-repeat ;background-size:100% 100%;
 background-attachment: fixed;">
 <header>
-  <nav>
-    <div class="logo">Gymnasium reservation system</div>
-    <div class="mobile-menu">
-      <div class="line1"></div>
-      <div class="line2"></div>
-      <div class="line3"></div>
-    </div>
-    <ul class="nav-list">
-      <li><a href="tindex">Home</a></li>
-      <li><a href="tvenue">Venue</a></li>
-      <li><a href="tmanage">Course</a></li>
-      <li><a href="add-newcourse">Add-course</a></li>
-      <li><a href="tpersonal">Personal</a></li>
-      <li><a href="logout">Exit </a> </li>
-    </ul>
-  </nav>
+    <nav>
+        <div class="logo">Gymnasium reservation system</div>
+        <div class="mobile-menu">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <ul class="nav-list">
+            <li><a href="tindex">Home</a></li>
+            <li><a href="tvenue">Venue</a></li>
+            <li><a href="tmanage">Course</a></li>
+            <li><a href="add-newcourse">Add-course</a></li>
+            <li><a href="tpersonal">Personal</a></li>
+            <li><a href="logout">Exit </a></li>
+        </ul>
+    </nav>
 </header>
 <center>
-  <div class="content">
-    <h4>All free gymnasiums</h4>
+    <div class="content">
+        <h4>All free gymnasiums</h4>
 
-    <table>
-      <tr>
-        <th>venue number</th>
-        <th>venue name</th>
-        <!--    <th>venue free Time</th>-->
-        <th>Select</th>
-      </tr>
-      <!----the physical education class you attended---->
-      <tr th:each="venue : ${venue_list}">
-        <td th:text="'#'+${venue.getId()}">#1</td>
-        <td th:text="${venue.getVenue_name()}">Badminton hall</td>
-        <td><button class="btn1" type="submit"><a th:href="'time?id='+${venue.getId()}+'&userid='+${userid}">Time</a></button></td>
-      </tr>
-
-    </table>
-  </div>
-  <button class="btn2"><a href="tmanage">View reservation</a></button>
-
-  <div class="login">
-    <div class="title">
-      Time Choose <a href="javascript:;" id="close">Close</a>
-    </div>
-    <button class="btn">Confirm</button>
-    <div class="dropdown-container">
-
-      <button class="dropdown-button main-button">
-        <span class="dropdown-title text-truncate">Optional time period</span>
-        <span class="dropdown-arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-                    <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-                </svg>
-            </span>
-      </button>
-      <div class="dropdown-list-container">
-        <div class="dropdown-list-wrapper">
-          <ul class="dropdown-list"></ul>
-          <div class="floating-icon" aria-hidden="true"></div>
+        <div class="container-right" th:each="venue : ${venue_list}">
+            <form action="tvenue" method="post" style="background-color: rgba(0, 0, 0, 0);border: none;padding: 0">
+                <!--  文章列表  -->
+                <div class="blog">
+                    <div class="title" th:text="${venue.getVenue_name()}">Volleyball hall</div>
+                    <input name="venueid" th:value="${venue.getId()}" type="hidden">
+                    <div class="date" th:text="'#'+${venue.getId()}">T0012</div>
+                    <select name="timeid"><option th:value="${time.getId()}" th:each="time : ${time_list}" th:text="${time.getTime()}"></select>
+<!--                    <div class="select-menu">-->
+<!--                        <div class="select">-->
+<!--                            <span class="t1">Select Time</span>-->
+<!--                            <i class="fas fa-angle-down"></i>-->
+<!--                        </div>-->
+<!--                        <div class="options-list">-->
+<!--                            <div th:each="time : ${time_list}">-->
+<!--                                <div class="option" th:text="${time.getTime()}">8:00</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                </div>
+                <button class="b1" type="submit">Confirm</button>
+            </form>
         </div>
-      </div>
     </div>
-  </div>
-  <div class="bg">
-  </div>
-
-
+    <button class="btn1"><a href="tmanage">View reservation</a></button>
 </center>
-<script src="static/js/SelectTime.js"></script>
+<script src="static/js/SelectVenue.js"></script>
 </body>
 </html>
+
+
+
+
+
