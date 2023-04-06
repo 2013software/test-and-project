@@ -28,7 +28,7 @@ public class TestSeCourse2 {
             mapper.AddCourse(state);
             Course course1=mapper.getSelectCourseList2(14).get(0);
 
-            Assertions.assertEquals(4,course1.getCourse_id(),"minusNumber has failed");
+            Assertions.assertEquals(4,course1.getCourse_id(),"AddCourse() has failed");
 
         }}
 }
