@@ -11,7 +11,7 @@ public class TestVenue {
         try (SqlSession sqlSession = MybatisUtil.getSession(true)) {
             VenueMapper mapper = sqlSession.getMapper(VenueMapper.class);
             Venue venue=mapper.getVenueList_act().get(0);
-            Assertions.assertNotNull(venue, "get user-teacher data has failed");
+            Assertions.assertNotNull(venue, "getting venue data has failed");
         }
     }
 
@@ -22,7 +22,7 @@ public class TestVenue {
             Venue venue=mapper.getVenueList_act().get(0);
             venue.setUserid("2");
             mapper.SelectVenue(venue);
-            Assertions.assertEquals("2", venue.getUserid(),"get user-teacher data has failed");
+            Assertions.assertEquals("2", venue.getUserid(),"selecting venue has failed");
         }
     }
 
