@@ -18,7 +18,7 @@ public class TestCourse {
             if (a!=0){
             Course course=new Course();
             course = mapper.getCourseList(1).get(0);
-            Assertions.assertNotNull(course, "get user-teacher data has failed");}
+            Assertions.assertNotNull(course, "get unit table of course-state,course,venue,time and user table data has failed");}
         }
     }
     @Test
@@ -29,7 +29,7 @@ public class TestCourse {
             if (a!=0){
                 Course course=new Course();
                 course = mapper.getCourseList_Teacher(33).get(0);
-                Assertions.assertNotNull(course, "get user-teacher data has failed");}
+                Assertions.assertNotNull(course, "get teacher and course table data has failed");}
         }
     }
     @Test
@@ -40,7 +40,7 @@ public class TestCourse {
             if (a!=0){
                 Course course=new Course();
                 course = mapper.getCourseList_Teacher_manage(56).get(0);
-                Assertions.assertNotNull(course, "get user-teacher data has failed");}
+                Assertions.assertNotNull(course, "get teacher manage table data has failed");}
         }
     }
     @Test
@@ -53,7 +53,7 @@ public class TestCourse {
             {
                 Course course= mapper.getCourseList(14).get(i);
                 if(course.getId()==4){
-                    throw new Exception("test failed");
+                    throw new Exception("cancel course function test failed");
                 }
                 i=i+1;
             }
@@ -66,7 +66,7 @@ public class TestCourse {
             CourseMapper mapper = sqlSession.getMapper(CourseMapper.class);
             mapper.MinusNumber("1");
             Course course=mapper.getCourseList(1).get(0);
-            Assertions.assertEquals(1,course.getCurrent_number(),"minusNumber has failed");
+            Assertions.assertEquals(1,course.getCurrent_number(),"the number of courses subtracting 1 failed");
     }}
     @Test
     public void Add_Course(){
@@ -93,7 +93,7 @@ public class TestCourse {
             course2.setTimeid(3);
             course2.setVenueid(3);
             Course course1=mapper.SelectByTimeVenue(course2);
-            Assertions.assertEquals(course,course1,"minusNumber has failed");
+            Assertions.assertEquals(course,course1,"in a venue selecting time has failed");
         }
     }
 
