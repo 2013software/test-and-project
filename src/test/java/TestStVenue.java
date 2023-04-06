@@ -39,7 +39,7 @@ public class TestStVenue {
             {
                 StVenue venue= mapper.getStVenueList(13).get(i);
                 if(venue.getId()==5){
-                    throw new Exception("test failed");
+                    throw new Exception("canceling the venue test failed");
 
                 }
                 i=i+1;
