@@ -22,6 +22,6 @@ public class TestSeCourse {
             SelectCourseMapper mapper = sqlSession.getMapper(SelectCourseMapper.class);
             Course course=mapper.getSelectCourseList().get(2);
             mapper.SelectNumber(course);
-            Assertions.assertEquals(5,course.getCurrent_number()+1,"minusNumber has failed");
+            Assertions.assertEquals(5,course.getCurrent_number()+1,"SelectNumber() has failed");
         }}
 }
