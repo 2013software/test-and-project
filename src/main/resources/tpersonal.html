@@ -4,7 +4,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tpersonal</title>
-  <link rel="stylesheet" href="static/css/page.css">
+  <link rel="stylesheet" href="static/css/TeacherPersonal.css">
 </head>
 <body background="static/image/register.jpg" style=" background-repeat:no-repeat ;background-size:100% 100%;
 background-attachment: fixed;">
@@ -26,32 +26,36 @@ background-attachment: fixed;">
     </ul>
   </nav>
 </header>
-<center>
+
 <div class="content">
-<h4>Personal Information</h4>
-<form action="update" method="get">
-    <p th:unless="${failure4}">Please enter the information:</p>
-    <p th:if="${failure4}" style="color: red">Your information is incorrect.</p>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Username</label>
-            <input name="username" type="text" class="form-control" id="exampleInputEmail1" placeholder="Username" th:value="${username}">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input name="password" type="text" class="form-control" id="exampleInputPassword1"
-                   placeholder="Password" th:value="${password}">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputTelephone1">Telephone</label>
-            <input name="telephone" type="text" class="form-control" id="exampleInputTelephone1"
-                   placeholder="Telephone" th:value="${telephone}">
-        </div>
-      <center>
-      <button class="btn" type="submit" onclick="return confirm('Are you sure to edit your informations?')">Submit</button>
-      </center>
-    </form>
+  <h4>Teacher Personal Information</h4>
 </div>
-</center>
-<script src="static/js/page.js"></script>
+
+
+<div class="container">
+  <div class="header">
+    <h2>Information filling</h2>
+  </div>
+  <form id="form" class="form1" novalidate>
+    <div class="form-control">
+      <input type="text" placeholder="Teacher Id" id="teacher-id" />
+      <small class="error-message"></small>
+    </div>
+    <div class="form-control">
+      <input type="text" placeholder="Username" id="username" />
+      <small class="error-message"></small>
+    </div>
+    <div class="form-control">
+      <input type="text" placeholder="Password" id="password"/>
+      <small class="error-message"></small>
+    </div>
+    <div class="form-control">
+      <input type="text" placeholder="Telephone" id="phone-number"/>
+      <small class="error-message"></small>
+    </div>
+    <button>Submit</button>
+  </form>
+</div>
+<script src="static/js/TeacherPersonal.js"></script>
 </body>
 </html>

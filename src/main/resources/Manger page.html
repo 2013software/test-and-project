@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manager Page</title>
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="static/css/manager.css">
+</head>
+
+<body>
+<nav>
+  <div class="sidebar-top">
+      <span class="shrink-btn">
+        <i class='bx bx-chevron-left'></i>
+      </span>
+    <img src="static/image/logo.png" class="logo" alt="">
+    <h3 class="hide">Management System</h3>
+  </div>
+
+  <div class="search">
+    <i class='bx bx-search'></i>
+    <input type="text" class="hide" placeholder="Quick Search ...">
+  </div>
+
+  <div class="sidebar-links">
+    <ul>
+      <div class="active-tab"></div>
+      <li class="tooltip-element" data-tooltip="0">
+        <a href="#" class="active" data-active="0">
+          <div class="icon">
+            <i class='bx bx-bar-chart-alt-2'></i>
+            <i class='bx bxs-bar-chart-alt-2'></i>
+          </div>
+          <span class="link hide">Venue management</span>
+        </a>
+      </li>
+      <li class="tooltip-element" data-tooltip="1">
+        <a href="#" data-active="1">
+          <div class="icon">
+            <i class='bx bx-book-content'></i>
+            <i class='bx bxs-book-content' ></i>
+          </div>
+          <span class="link hide">Course management</span>
+        </a>
+      </li>
+      <li class="tooltip-element" data-tooltip="2">
+        <a href="#" data-active="2">
+          <div class="icon">
+            <i class='bx bx-group'></i>
+            <i class='bx bxs-group'></i>
+          </div>
+          <span class="link hide">User management</span>
+        </a>
+      </li>
+      <li class="tooltip-element" data-tooltip="3">
+        <a href="#" data-active="3">
+          <div class="icon">
+            <i class='bx bx-alarm-exclamation'></i>
+            <i class='bx bxs-alarm-exclamation' ></i>
+          </div>
+          <span class="link hide">Announcement</span>
+        </a>
+      </li>
+      <div class="tooltip">
+        <span class="show">Venue management</span>
+        <span>Course management</span>
+        <span>User management</span>
+        <span>Announcement</span>
+      </div>
+    </ul>
+
+    <h4 class="hide">Interface help</h4>
+
+    <ul>
+      <li class="tooltip-element" data-tooltip="0">
+        <a href="#" data-active="4">
+          <div class="icon">
+            <i class='bx bx-notepad'></i>
+            <i class='bx bxs-notepad'></i>
+          </div>
+          <span class="link hide">Manager log</span>
+        </a>
+      </li>
+      <li class="tooltip-element" data-tooltip="1">
+        <a href="#" data-active="5">
+          <div class="icon">
+            <i class='bx bx-bulb' ></i>
+            <i class='bx bxs-bulb' ></i>
+          </div>
+          <span class="link hide">Manager Help</span>
+        </a>
+      </li>
+      <li class="tooltip-element" data-tooltip="2">
+        <a href="#" data-active="6">
+          <div class="icon">
+            <i class='bx bx-brightness' ></i>
+            <i class='bx bxs-brightness' ></i>
+          </div>
+          <span class="link hide">Account Settings</span>
+        </a>
+      </li>
+      <div class="tooltip">
+        <span class="show">manage log</span>
+        <span>Manager help</span>
+        <span>Account settings</span>
+      </div>
+    </ul>
+  </div>
+
+  <div class="sidebar-footer">
+    <a href="#" class="account tooltip-element" data-tooltip="0">
+      <i class='bx bx-user'></i>
+    </a>
+    <div class="admin-user tooltip-element" data-tooltip="1">
+      <div class="admin-profile hide">
+        <img src="static/image/login.png" alt="">
+        <div class="admin-info">
+          <h3>(Manager name)</h3>
+          <h5>Manager(only the job name)</h5>
+        </div>
+      </div>
+      <a href="#" class="log-out">
+        <i class='bx bx-log-out'></i>
+      </a>
+    </div>
+    <div class="tooltip">
+      <span class="show">(Manager name)</span>
+      <span>Logout</span>
+    </div>
+  </div>
+</nav>
+
+
+<main>
+  <div class="studentSystem">
+    <div class="head">
+      <div class="hr_head_left"></div>
+      <h2 class="head_title">User information management</h2>
+      <div class="hr_head_right"></div>
+    </div>
+    <button type="button" class="addStudent">Add</button>
+    <button type="button" class="delStudent">Delete</button>
+    <table class="studentTable">
+      <tr>
+        <td>
+          <input type="checkbox">
+        </td>
+        <td>Number</td>
+        <td>User ID</td>
+        <td>User Name</td>
+        <td>Registration time</td>
+        <td>User type</td>
+        <td>Appointment numbers</td>
+        <td>Gender</td>
+        <td>Age</td>
+        <td>Operation</td>
+      </tr>
+    </table>
+    <div class="bottomBox">
+      <label class="newPage">Page 1, 9 pages in total (10 pages per page)</label>
+      <button type="button" class="prePage">Previous page</button>
+      <button type="button" class="nextPage">Next page</button>
+    </div>
+
+    <!--        Add-->
+    <div class="addStudentBox" style="display: none">
+      <span class="addStudentBoxTitle">Add new user</span>
+      <div class="inputInfo">
+        <label>User ID</label><input placeholder="You can only enter pure numbers as ID" class="id" type="text"><i></i><br>
+        <label>User Name</label><input placeholder="English or alphabetic names" type="text"><br>
+        <label>Gender</label><input placeholder="For example: male" type="text"><br>
+        <label>User type</label><input placeholder="For example: teacher" type="text"><br>
+        <label>Age</label><input placeholder="The following two digits: for example, 18" type="text"><br>
+      </div>
+      <hr style="margin-bottom: 15px">
+      <div class="addStudentBoxFooter">
+        <button type="button" class="addStudentBoxYes">Confirm</button>
+        <button type="button" class="addStudentBoxNo">Esc</button>
+      </div>
+    </div>
+    <!--        view user-->
+    <div class="checkStudentBox" style="display: none">
+      <span class="checkStudentBoxTitle">View User</span>
+      <div class="checkInputInfo">
+        <label>User ID</label><input disabled type="text"><br>
+        <label>User Name</label><input disabled type="text"><br>
+        <label>Registration time</label><input disabled type="text"><br>
+        <label>User type</label><input disabled type="text"><br>
+        <label>Appointment numbers</label><input disabled type="text"><br>
+        <label>Gender</label><input disabled type="text"><br>
+        <label>Age</label><input disabled type="text"><br>
+      </div>
+      <hr style="margin-bottom: 15px">
+      <div class="checkStudentBoxFooter">
+        <button type="button" class="checkStudentBoxYes">Confirm</button>
+      </div>
+    </div>
+
+    <!--        change user-->
+    <div class="changeStudentBox" style="display: none">
+      <span class="changeStudentBoxTitle">Modify User Information</span>
+      <div class="changeInputInfo">
+        <label>User ID</label><input placeholder="You can only enter pure numbers as ID" class="checkId" type="text"><i></i><br>
+        <label>User Name</label><input placeholder="English or alphabetic names" type="text"><br>
+        <label>User Age</label><input placeholder="For example: 18" type="text"><br>
+        <label>User Gender</label><input placeholder="For example: male" type="text"><br>
+        <label>User type</label><input placeholder="For example: teacher" type="text"><br>
+        <label>Registration time</label><input placeholder="For example: 2023/4/2" type="text"><br>
+        <label>Appointment numbers</label><input placeholder="For example: 7" type="text"><br>
+      </div>
+      <hr style="margin-bottom: 15px">
+      <div class="changeStudentBoxFooter">
+        <button type="button" class="changeStudentBoxYes">Confirm</button>
+        <button type="button" class="changeStudentBoxNo">Esc</button>
+      </div>
+    </div>
+  </div>
+  <p class="copyright">
+    2023 - <span>Smart gymnasium management system description</span>
+  </p>
+</main>
+
+<script src="static/js/manager.js"></script>
+</body>
+
+</html>

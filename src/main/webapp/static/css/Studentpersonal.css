@@ -1,6 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500&display=swap');
+
+
+
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 a{
@@ -183,95 +188,138 @@ nav{
   transform:  rotate(45deg) translate(-5px ,-6px);
 }
 .content {
-margin-top:3%;
-}
-table {
-  border-collapse: collapse;
-  width: 70%;
-  text-align:center;
- background-color:white;
- margin-top:20px;
-
+  margin-top:1%;
 }
 
-th, td {
-  padding: 8px;
+
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  margin: 0 auto;
 }
-tr:nth-child(even){background-color: #f2f2f2;
-}
-th {
-  background-color: #E68864;
+
+
+.content{
+  align-items: center;
+  text-align: center;
+  font-size: 40px;
   color: white;
-}
-.course a{
-color:#E68864;
-background:transparent;
-width:60px;
-}
-h4{
-font-size:30px;
-color:white;
-}
-.btn{
-    width: 80px;
-    height: 35px;
-    background:linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
-    border: none;
-    border-radius: 10px;
-    font-weight: 500;
-    font-size: 20px;
-    color: #fff;
+  margin-top: 5%;
 }
 
-form{
-    margin: 10px;
-    text-align: center;
-    color:black;
-    line-height: 65px;
-    width: 520px;
-    height: 400px;
-    border-radius: 10px;
-    border: 2px solid rgb(190, 190, 214);
-    background-color:white;
+
+.container {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  width: 400px;
+  max-width: 90%;
+  margin: 0 auto;
 }
-.form-group{
-background:transparent;
-  height:80px;
-   font-size:23px;
-   font-weight:500;
+
+.header {
+  border-bottom: 1px solid #f0f0f0;
+  background-color: #F59B6B;
+  padding: 20px 40px;
+  opacity: 0.8;
 }
-.form-control{
-height:30px;
-border-radius: 10px;
-width:50%;
-border: 2px solid rgb(190, 190, 214);
-}
-.btn1{
-margin-top:5%;
-width: 278px;
-    height: 35px;
-    background:linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
-    border: none;
-    border-radius: 10px;
-    font-family: 'Lato', sans-serif;
-    font-weight: 500;
-    font-size: 20px;
-    color: #fff;
+
+.header h2 {
+  margin: 0;
+  text-align: center;
+  font-size: 30px;
 
 }
-span{
-  color: black;
+
+.form1 {
+  padding: 15px 40px;
 }
-.wave{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    height: 100%;
-    z-index: -1;
+
+.form-control {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  position: relative;
+  border-radius: 1.4rem;
 }
-label{
-    width: 200px;
-    display: inline-block;
-    text-align: right;
-    padding-right: 3px;
+
+
+.form-control input {
+  border: 2px solid #cac4c4;
+  border-radius: 4px;
+  display: block;
+  font-family: inherit;
+  font-size: 20px;
+  padding: 10px;
+  width: 100%;
+}
+
+.form-control input:focus {
+  outline: 0;
+  border-color: #777;
+}
+
+.form-control.error input {
+  border-color: #e74c3c;
+  position: relative;
+}
+
+.form-control .error-message {
+  color: #e74c3c;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+}
+
+.form-control.error .error-message {
+  visibility: visible;
+}
+
+.form1 button {
+
+  background-image:linear-gradient(to right, #BE6549, #F59B6B , #BE6549);
+  background-size: 200%;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  display: block;
+  font-family: inherit;
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 20px;
+  width: 100%;
+  cursor: pointer;
+  transition: .5s;
+}
+.form1 button:hover{
+  background-position: right;
+
+}
+
+.form-control1{
+  /*设置select下拉框的背景颜色和背景图片*/
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-size: 20px;
+  border: 2px solid #cac4c4;
+  font-family: inherit;
+  width: 63%;
+  border-radius: 1.4rem;
+  height: 50px;
+  text-align: center;
+}
+/*设置select下拉框的样式，去掉下拉框箭头*/
+.form-control1::-ms-expand {
+  display: none;
+}
+.form-control label{
+  font-size: 20px;
+  font-family: inherit;
+  color: #222429;
 }
