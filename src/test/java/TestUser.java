@@ -3,6 +3,7 @@ import com.stadium.entity.User;
 import com.stadium.utils.MybatisUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class TestUser {
@@ -11,7 +12,7 @@ public class TestUser {
         try (SqlSession sqlSession = MybatisUtil.getSession(true)){
             UserMapper mapper = sqlSession.getMapper(UserMapper.class);
             User user = mapper.getUser("fxy","fxy5774","student");
-            Assert.assertNotNull(user);
+            Assertions.assertNotNull(user,"get user-student data has failed");
         }
     }
     @Test
@@ -19,7 +20,7 @@ public class TestUser {
         try (SqlSession sqlSession = MybatisUtil.getSession(true)){
             UserMapper mapper = sqlSession.getMapper(UserMapper.class);
             User user = mapper.getUser("mzxtx","mzxtx","teacher");
-            Assert.assertNotNull(user);
+            Assertions.assertNotNull(user,"get user-teacher data has failed");
         }
     }
     @Test
@@ -27,7 +28,8 @@ public class TestUser {
         try (SqlSession sqlSession = MybatisUtil.getSession(true)){
             UserMapper mapper = sqlSession.getMapper(UserMapper.class);
             User user = mapper.SelectByUsername("mzxtx");
-            Assert.assertNotNull(user);
+            User user1 = mapper.getUser("mzxtx","mzxtx","teacher");
+            Assertions.assertEquals(user,user1,"select user by user's name has failed");
         }
     }
     @Test
@@ -40,21 +42,25 @@ public class TestUser {
             user.setTelephone("13358749683");
             user.setIdentity("student");
             mapper.add(user);
-            User user1 = mapper.getUser("1111","1111","student");
-            Assert.assertNotNull(user1);
+            User user1 = mapper.SelectByUsername("1111");
+            Assertions.assertNotNull(user1,"add user data has failed because error in add userid");
+
         }
     }
+
     @Test
     public void Update(){
         try (SqlSession sqlSession = MybatisUtil.getSession(true)){
             UserMapper mapper = sqlSession.getMapper(UserMapper.class);
             User user = mapper.SelectByUsername("Zhao");
-            user.setUsername("Zhao");
-            user.setPassword("zhao1");
-            user.setTelephone("18647502395");
+            user.setUsername("Xiao");
+            user.setPassword("J123456");
+            user.setTelephone("18642333333");
             mapper.update(user);
-            User user1 = mapper.getUser("Zhao","zhao1","teacher");
-            Assert.assertNotNull(user1);
+            User user1 = mapper.SelectByUsername("Xiao");
+            int a=user.getUserid();
+            int b=user1.getUserid();
+            Assertions.assertEquals(b,a,"update user's data has failed");
         }
     }
 }
